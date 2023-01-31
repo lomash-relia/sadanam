@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "287908920527",
+    "project_id": "sadanam-fb110",
+    "storage_bucket": "sadanam-fb110.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287908920527:android:cd6dd47898d530b5168bba",
+        "android_client_info": {
+          "package_name": "com.example.sadanam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287908920527-63c5si9eq4l9mfa31qgabf6q53ndpe9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6MDTYk_kL-y7_G8u2NBoeUlJLt-wIy1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287908920527-63c5si9eq4l9mfa31qgabf6q53ndpe9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
