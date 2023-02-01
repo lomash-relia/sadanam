@@ -1,7 +1,6 @@
 import 'package:hotelbellevue/splashscreen/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +16,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: SplashScreen());
+        debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
