@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   easy_splash_screen: ^1.0.4
   flutter_svg: ^1.1.0
+  fluttertoast: ^8.0.8
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,6 +42,7 @@ dependencies:
   carousel_images: ^1.1.2
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
+  cloud_firestore: ^4.3.1
   flutter_signin_button: ^2.0.0
 
 dev_dependencies:

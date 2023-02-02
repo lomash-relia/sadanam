@@ -1,5 +1,6 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
-import 'package:hotelbellevue/Screens/Welcome/welcome_screen.dart';
+import 'package:hotelbellevue/auth/login_screen.dart';
+import 'package:hotelbellevue/dashboard/DashBoard.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,8 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       backgroundColor: Colors.grey.shade400,
       showLoader: true,
-      loadingText:const Text("Starting App"),
-      navigator: WelcomeScreen(),
+      loadingText: Text("Loading..."),
+      navigator: LoginScreen(),
       durationInSeconds: 4,
     );
   }

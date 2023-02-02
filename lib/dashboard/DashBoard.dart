@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotelbellevue/auth/login_screen.dart';
 import 'breakfastscreen/BreakfastScreen.dart';
 import 'homescreen/HomeScreen.dart';
 
@@ -10,7 +11,6 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
-
   int _currentIndex = 0;
   Widget currentscreen = const HomeScreen();
   final PageStorageBucket bucket = PageStorageBucket();
@@ -53,6 +53,15 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: Icon(
+                Icons.logout_rounded,
+              ),
+              title: const Text('Log Out'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+              },
+            ),
           ],
         ),
       ),
@@ -76,44 +85,48 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               width: size.width,
               height: 60,
               child: Stack(
-                clipBehavior: Clip.none, children: [
-                Container(
-                  width: size.width,
-                  height: 80,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.home,
-                          size: 30,
-                          color: _currentIndex == 0 ? Colors.white : Colors.grey.shade400,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            currentscreen = const HomeScreen();
-                            _currentIndex = 0;
-                          });
-                        },
-                        splashColor: Colors.white,
-                      ),
-                      IconButton(
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    width: size.width,
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
                           icon: Icon(
-                            Icons.emoji_food_beverage_outlined,
+                            Icons.home,
                             size: 30,
-                            color: _currentIndex == 1 ? Colors.white : Colors.grey.shade400,
+                            color: _currentIndex == 0
+                                ? Colors.white
+                                : Colors.grey.shade400,
                           ),
                           onPressed: () {
                             setState(() {
-                              currentscreen = const BreakfastScreen();
-                              _currentIndex = 1;
+                              currentscreen = const HomeScreen();
+                              _currentIndex = 0;
                             });
-                          }),
-
-                    ],
+                          },
+                          splashColor: Colors.white,
+                        ),
+                        IconButton(
+                            icon: Icon(
+                              Icons.emoji_food_beverage_outlined,
+                              size: 30,
+                              color: _currentIndex == 1
+                                  ? Colors.white
+                                  : Colors.grey.shade400,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                currentscreen = const BreakfastScreen();
+                                _currentIndex = 1;
+                              });
+                            }),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
               ),
             ),
           )
