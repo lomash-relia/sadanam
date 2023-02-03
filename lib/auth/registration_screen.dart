@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hotelbellevue/auth/login_screen.dart';
 import 'package:hotelbellevue/dashboard/DashBoard.dart';
 import 'package:hotelbellevue/models/user_model.dart';
 
@@ -297,7 +298,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => DashBoardScreen()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
             (route) => false);
   }
 }

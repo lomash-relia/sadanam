@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> listImages = [
-    'assets/images/lobby.png',
+    'assets/images/Lobby.jpg',
     'assets/images/LiveKitchen.png',
     'assets/images/Suiteroombalcony.jpg'
   ];
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 250.0,
             borderRadius: 15.0,
             cachedNetworkImage: true,
-            verticalAlignment: Alignment.topCenter,
+            verticalAlignment: Alignment.center,
             onTap: (index) {
               print('Tapped on page $index');
             },
