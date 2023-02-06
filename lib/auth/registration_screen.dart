@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hotelbellevue/auth/login_screen.dart';
-import 'package:hotelbellevue/dashboard/DashBoard.dart';
 import 'package:hotelbellevue/models/user_model.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -174,7 +173,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
             signUp(emailEditingController.text, passwordEditingController.text);
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoardScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
           },
           child: Text(
             "SignUp",
@@ -277,7 +276,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   postDetailsToFirestore() async {
     // calling our firestore
     // calling our user model
-    // sedning these values
+    // sending these values
 
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
@@ -294,7 +293,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         .collection("users")
         .doc(user.uid)
         .set(userModel.toMap());
-    Fluttertoast.showToast(msg: "Account created successfully :) ");
+    Fluttertoast.showToast(msg: "Account created successfully :)");
 
     Navigator.pushAndRemoveUntil(
         (context),

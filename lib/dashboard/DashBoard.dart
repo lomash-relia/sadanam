@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hotelbellevue/auth/login_screen.dart';
 import 'breakfastscreen/BreakfastScreen.dart';
@@ -19,6 +20,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     setState(() {
       _currentIndex = index;
     });
+  }
+
+  void logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 
   @override
@@ -59,7 +66,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               ),
               title: const Text('Log Out'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                logout();
               },
             ),
           ],
