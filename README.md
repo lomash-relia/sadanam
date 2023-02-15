@@ -1,6 +1,6 @@
 # sadanam
 
-A new Flutter project.
+App for Hotels
 
 ## Getting Started
 
