@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hotelbellevue/auth/login_screen.dart';
-import 'breakfastscreen/BreakfastScreen.dart';
+import 'package:sadanam/auth/login_screen.dart';
+import 'FoodMenu/FoodMenu.dart';
 import 'homescreen/HomeScreen.dart';
 
 class DashBoardScreen extends StatefulWidget {
@@ -23,9 +23,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   }
 
   void logout() async {
+
     await FirebaseAuth.instance.signOut();
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        (Route<dynamic> route) => false);
   }
 
   @override
@@ -126,7 +129,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                             ),
                             onPressed: () {
                               setState(() {
-                                currentscreen = const BreakfastScreen();
+                                currentscreen = FoodMenu();
                                 _currentIndex = 1;
                               });
                             }),

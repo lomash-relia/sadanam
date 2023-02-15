@@ -1,7 +1,7 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hotelbellevue/auth/login_screen.dart';
-import 'package:hotelbellevue/dashboard/DashBoard.dart';
+import 'package:sadanam/auth/login_screen.dart';
+import 'package:sadanam/dashboard/DashBoard.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

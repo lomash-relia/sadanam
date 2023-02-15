@@ -1,9 +1,11 @@
-
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hotelbellevue/auth/registration_screen.dart';
-import 'package:hotelbellevue/dashboard/DashBoard.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sadanam/auth/registration_screen.dart';
+import 'package:sadanam/dashboard/DashBoard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -117,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
-                        height: 200,
+                        height: 180,
                         child: Image.asset(
                           "assets/images/bellevue.png",
                         )),
@@ -131,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Don't have an account? "),
+                          const Text("Don't have an account? "),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -140,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       builder: (context) =>
                                           RegistrationScreen()));
                             },
-                            child: Text(
+                            child: const Text(
                               "SignUp",
                               style: TextStyle(
                                   color: Colors.redAccent,
@@ -148,7 +150,28 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 15),
                             ),
                           )
-                        ])
+                        ]),
+                    const Divider(
+                      height: 50,
+                      thickness: 2,
+                    ),
+                    const Text(
+                      'or SignIn using',
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    SignInButton(
+                      Buttons.Google,
+                      text: "Sign up with Google",
+                      onPressed: () {
+                        try {
+                          GoogleSignIn().signIn();
+                        } catch (e) {
+                          print(e);
+                        }
+                      },
+                    )
                   ],
                 ),
               ),
@@ -166,10 +189,10 @@ class _LoginScreenState extends State<LoginScreen> {
         await _auth
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
-          Fluttertoast.showToast(msg: "Login Successful"),
-          Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => DashBoardScreen())),
-        });
+                  Fluttertoast.showToast(msg: "Login Successful"),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => DashBoardScreen())),
+                });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":
